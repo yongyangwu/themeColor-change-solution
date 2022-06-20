@@ -1,0 +1,7 @@
+@import "./variable.scss";
+
+.container {
+  background-color: var(--theme-bg);
+  color: var(--theme-color);
+}
+

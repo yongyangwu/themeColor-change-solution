@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Case1 from "./pages/case1/index.js";
+import Case2 from "./pages/case2/index.js";
 import Case3 from "./pages/case3/index.js";
 import Case4 from "./pages/case4/index.js";
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route path="case4" element={<Case4 />} />
         </Route> */}
         <Route path="/" element={<Case1 />} />
+        <Route path="case2" element={<Case2 />} />
         <Route path="case3" element={<Case3 />} />
         <Route path="case4" element={<Case4 />} />
       </Routes>

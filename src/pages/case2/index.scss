@@ -1,0 +1,14 @@
+
+[data-theme="dark"] {
+    .container{
+        color:white;
+        background-color: black;
+    }  
+}
+[data-theme="light"] {
+    .container{
+        color:black;
+        background-color: lightyellow;
+    }
+    
+}

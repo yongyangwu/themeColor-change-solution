@@ -34,7 +34,18 @@ module.exports = {
           "css-loader",
           "less-loader",
         ],
-      }
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
     ],
   },
   plugins: [
@@ -44,23 +55,23 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "main.css",
     }),
-    new AntDesignThemePlugin({
-      antDir: path.join(__dirname, './node_modules/antd'),
-      stylesDir: path.join(__dirname, './src'),
-      varFile: path.join(__dirname, './src/style/variables.less'),
-      themeVariables: ['@primary-color'],
-      indexFileName: "index.html",
-      generateOnce: false,
-      lessUrl: "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
-      publicPath: "",
-      customColorRegexArray: [], // An array of regex codes to match your custom color variable values so that code can identify that it's a valid color. Make sure your regex does not adds false positives.
-    }),
+    // new AntDesignThemePlugin({
+    //   antDir: path.join(__dirname, './node_modules/antd'),
+    //   stylesDir: path.join(__dirname, './src'),
+    //   varFile: path.join(__dirname, './src/style/variables.less'),
+    //   themeVariables: ['@primary-color'],
+    //   indexFileName: "index.html",
+    //   generateOnce: false,
+    //   lessUrl: "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
+    //   publicPath: "",
+    //   customColorRegexArray: [], // An array of regex codes to match your custom color variable values so that code can identify that it's a valid color. Make sure your regex does not adds false positives.
+    // }),
     new CopyWebpackPlugin({
       patterns:[{
         from: path.resolve(path.resolve(__dirname, './src'), 'assets/js/less.min.js'),
         to: path.resolve(__dirname, './dist'),
       },{
-        from: path.resolve(path.resolve(__dirname, './src'), 'pages/case3/default.less'),
+        from: path.resolve(path.resolve(__dirname, './src'), 'pages/case3/index.less'),
         to: path.resolve(__dirname, './dist')
       }]
     })
